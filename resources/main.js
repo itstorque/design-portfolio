@@ -7,6 +7,15 @@ var pointerY = 0;
 var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
 var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 
+let randomizer_funcs = [x => x**0.6*10, x => Math.round(x/50)*50, x => function (n) { n=n**0.6*10; a=n%20; return Math.round(n/100)*100+a; }(x)];
+var chosen_randomizer = 0
+
+var randomizer_modifier = 1
+var time_modifier = function (){(new Date).getSeconds()/20}();
+
+let angle_randomizer_funcs = [x => x * Math.PI / 180, x => Math.round(x * Math.PI / 90)/2, x => anime.random(0,5)*Math.PI/6*randomizer_modifier, x => Math.sin(x) ]
+var chosen_angle_randomizer = 3
+
 function setCanvasSize() {
   canvasEl.width = window.innerWidth * 2;
   canvasEl.height = window.innerHeight * 2;
@@ -21,8 +30,8 @@ function updateCoords(e) {
 }
 
 function setParticuleDirection(p) {
-  var angle = anime.random(0, 360) * Math.PI / 180;
-  var value = anime.random(0, 360)**0.6*10;
+  var angle = angle_randomizer_funcs[chosen_angle_randomizer](anime.random(0, 360));
+  var value = randomizer_funcs[chosen_randomizer](anime.random(0, 360));
   var radius = [-1, 1][anime.random(0, 1)] * value;
   return {
     x: p.x + radius * Math.cos(angle),
@@ -143,9 +152,13 @@ window.addEventListener('resize', setCanvasSize, false);
 $(document).ready(function() {
   var xp = 0, yp = 0;
 
+  var mouseX = 0
+  var mouseY = 0
+
   $(document).mousemove(function(e){
     mouseX = e.pageX - 30;
     mouseY = e.pageY - 30;
+    randomizer_modifier = (((mouseX- window.innerWidth/2)/window.innerWidth)**2 - ((mouseY- window.innerHeight/2)/window.innerHeight)**2)*20
   });
 
   setInterval(function(){
