@@ -32,12 +32,12 @@ header {
 
   position: fixed;
   height: 40px;
-  padding: 20px;
+  margin: 20px;
   text-align: left;
   top: 0;
   left: 0;
   width: 100vw;
-  margin: 0;
+  padding: 0;
   z-index: 99;
 
 }
@@ -87,12 +87,12 @@ footer {
 
   position: fixed;
   height: 40px;
-  padding: 20px;
+  margin: 20px;
   text-align: left;
   bottom: 0;
   left: 0;
   width: 100vw;
-  margin: 0;
+  padding: 0;
   z-index: 99;
 
 }
@@ -189,16 +189,85 @@ footer .logo:hover {
 
 #projects #main_title {
 
-  font-size: 25vh;
+  font-size: 15vw;
   position: fixed;
   margin: 0px;
-  margin-left: 50px;
+  margin-left: 2.5vw;
   padding: 0;
   pointer-events: none;
-  line-height: 35vh;
+  line-height: 20vw;
   margin-top: 14vh;
   font-family: "gobold";
   animation: fade-in-from-right 0.4s;
+  z-index: -1;
+  color: #FF595E;
+  -webkit-text-stroke: 5px white;
+
+}
+
+#projects #main_title #titleline2 {
+
+  color: white;
+  -webkit-text-stroke: 0px;
+
+}
+
+#project_list {
+
+  padding-top: 100vh;
+  padding-bottom: 90vh;
+  margin-top: 0px;
+  margin-right: 3vw;
+  margin-left: 3vw;
+
+}
+
+#project_list .row {
+
+  padding: 0px;
+  padding-top: 2vw;
+
+}
+
+#project_list .six {
+
+  background-color: #FFB400;
+  height: 90vh;
+
+}
+
+#project_list .six.small {
+
+  background-color: #3300D5;
+  height: 40vh;
+
+}
+
+#project_list .nine-point-five {
+
+  background-color: #98C1D9;
+  width: 56.5vw !important;
+  height: 90vh;
+
+}
+
+#project_list .sixteen {
+
+  background-color: #F2D398;
+  height: 30vh;
+
+}
+
+#project_list .eight {
+
+  background-color: #FFB400;
+  height: 80vh;
+
+}
+
+#project_list .pushup {
+
+  margin-top: -50vh;
 
 }
 
