@@ -1,6 +1,7 @@
 var canvasEl = document.querySelector('#circle');
 var ctx = canvasEl.getContext('2d');
-var numberOfParticules = 500;
+var numberOfParticules = 50//500;
+var part_size = 3;
 var pointerX = 0;
 var pointerY = 0;
 var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
@@ -71,6 +72,21 @@ function renderParticule(anim) {
   }
 }
 
+function getParticuleCoord(p, coord) {
+
+  endCoord = p.endPos.x;
+
+  if (coord == "y") { endCoord = p.endPos.y; }
+
+  // a = p.endPos.x - mouseX-30;
+  // b = p.endPos.y - mouseY-30;
+
+  // if (Math.sqrt( a*a + b*b ) < 35) { return 0 }
+
+  return endCoord;
+
+}
+
 function animateParticules(x, y) {
   var circle = createCircle(x, y);
   var particules = [];
@@ -79,9 +95,9 @@ function animateParticules(x, y) {
   }
   anime.timeline().add({
     targets: particules,
-    x: function(p) { return p.endPos.x; },
-    y: function(p) { return p.endPos.y; },
-    radius: 0.6,
+    x: function(p){ return getParticuleCoord(p, "x") },
+    y: function(p){ return getParticuleCoord(p, "y") },
+    radius: 0.6*part_size,
     duration: anime.random(1200, 1800)/100,
     easing: 'easeOutExpo',
     update: renderParticule
@@ -95,7 +111,7 @@ function animateParticules(x, y) {
       easing: 'linear',
       duration: anime.random(600, 800),
     },
-    duration: anime.random(1200, 1800),
+    duration: 0,
     easing: 'easeOutExpo',
     update: renderParticule,
     offset: 0
@@ -124,12 +140,7 @@ autoClick();
 setCanvasSize();
 window.addEventListener('resize', setCanvasSize, false);
 
-
-//cursor stuff
-
-jQuery(document).ready(function() {
-
-  var mouseX = 0, mouseY = 0;
+$(document).ready(function() {
   var xp = 0, yp = 0;
 
   $(document).mousemove(function(e){
@@ -141,6 +152,20 @@ jQuery(document).ready(function() {
     xp += ((mouseX - xp)/3);
     yp += ((mouseY - yp)/3);
     $("#cursor").css({left: xp +'px', top: yp +'px'});
-  }, 2);
+  }, 20);
+
+  $("#projects_teaser").click(function() {
+
+    $("#projects_teaser_bar").css("width", "100vw");
+    $("#projects_teaser_bar").css("right", "0");
+    $("#projects_teaser_bar h2").css("right", "-10vw");
+
+    setTimeout(function(){
+
+      window.location.href = "/projects";
+
+    }, 110);
+
+  });
 
 });

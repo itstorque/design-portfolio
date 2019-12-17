@@ -1,10 +1,17 @@
+@font-face {
+  font-family: gobold;
+  src: url(gobold.ttf);
+}
+
 #cursor {
 
   position: absolute;
-  border: solid 1px #fff 2px #000 solid;
+  border: solid 1px #fff;
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  pointer-events: none !important;
+  animation: fade-in-out 3s ease-in-out infinite;
 
 }
 
@@ -13,6 +20,12 @@ body {
   background-color: #000;
   color: #fff;
   text-align: center;
+}
+
+body#projects {
+
+  background-color: #FF595E;
+
 }
 
 header {
@@ -25,6 +38,7 @@ header {
   left: 0;
   width: 100vw;
   margin: 0;
+  z-index: 99;
 
 }
 
@@ -79,6 +93,7 @@ footer {
   left: 0;
   width: 100vw;
   margin: 0;
+  z-index: 99;
 
 }
 
@@ -98,6 +113,58 @@ footer .logo:hover {
 
 }
 
+::selection {
+    background-color: #FF595E;
+    color: #fff;
+}
+
+#projects_teaser {
+
+  height: 100vh;
+  width: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  cursor: pointer;
+
+}
+
+#projects_teaser_bar {
+
+  height: 100vh;
+  width: 50px;
+  position: fixed;
+  right: -25px;
+  top: 0;
+  background-color: #FF595E;
+  z-index: -1;
+  transition: 0.2s ease;
+
+}
+
+#projects_teaser_bar h2 {
+
+  transform: rotate(-90deg);
+  position: fixed;
+  right: -1em;
+  bottom: 3em;
+  transition: 0.1s ease;
+
+}
+
+#projects_teaser:hover #projects_teaser_bar {
+
+  right: 0px;
+
+}
+
+#projects_teaser:hover #projects_teaser_bar h2 {
+
+  right: -2.2em;
+
+}
+
 #circle {
 
   position: fixed;
@@ -112,9 +179,43 @@ footer .logo:hover {
 
   font-size: 6em;
   text-align: left;
-  width: 40vw;
-  margin-left: 30vw;
+  width: 7em;
+  margin-left: -3.5em;
+  padding-left: 50vw;
   padding-top: 30vh;
   margin-top: 40px;
 
+}
+
+#projects #main_title {
+
+  font-size: 25vh;
+  position: fixed;
+  margin: 0px;
+  margin-left: 50px;
+  padding: 0;
+  pointer-events: none;
+  line-height: 35vh;
+  margin-top: 14vh;
+  font-family: "gobold";
+  animation: fade-in-from-right 0.4s;
+
+}
+
+/* ANIMATIONS */
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-in-from-right {
+  0%   { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: initial; }
+}
+
+@keyframes fade-in-out {
+  0%   { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
 }
