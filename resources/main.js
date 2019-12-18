@@ -172,8 +172,8 @@ $(document).ready(function() {
   var mouseY = 0
 
   $(document).mousemove(function(e){
-    mouseX = e.pageX - 30;
-    mouseY = e.pageY - 30;
+    mouseX = e.pageX - 50;
+    mouseY = e.pageY - 50;
     position_modifier = (((mouseX- window.innerWidth/2)/window.innerWidth)**2 - ((mouseY- window.innerHeight/2)/window.innerHeight)**2)*20
   });
 

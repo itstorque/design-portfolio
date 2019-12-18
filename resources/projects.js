@@ -4,10 +4,11 @@ $(document).ready(function() {
   var mouseX = 0
   var mouseY = 0
 
+  var scrollTop = 0
+
   $(document).mousemove(function(e){
-    mouseX = e.pageX - 30;
-    mouseY = e.pageY - 30;
-    randomizer_modifier = (((mouseX- window.innerWidth/2)/window.innerWidth)**2 - ((mouseY- window.innerHeight/2)/window.innerHeight)**2)*20
+    mouseX = e.pageX - 50;
+    mouseY = e.pageY - 50 - scrollTop;
   });
 
   setInterval(function(){
@@ -18,7 +19,7 @@ $(document).ready(function() {
 
   $(window).scroll(function() {
 
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > window.innerHeight*1.5) {
 
