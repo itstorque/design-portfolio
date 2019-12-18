@@ -17,8 +17,31 @@ $(document).ready(function() {
   }, 20);
 
   $(document).scroll(function() {
-    $("#titleline1").html("WEB");
-    $("#titleline2").html("DESIGN");
+
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > window.innerHeight*1.5) {
+
+      opacity = 1;
+
+      $("#main_title").css({opacity: opacity})
+
+      $("#titleline1").html("WEB");
+      $("#titleline2").html("DESIGN");
+
+    } else {
+
+      opacity = window.innerHeight-scrollTop;
+
+      if (opacity > 0) {  opacity = (window.innerHeight-scrollTop)**2/window.innerHeight**2*10; }
+
+      $("#main_title").css({opacity: opacity})
+
+      $("#titleline1").html("RECENT");
+      $("#titleline2").html("PROJECTS");
+
+    }
+
   });
 
 });
