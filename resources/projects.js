@@ -16,7 +16,7 @@ $(document).ready(function() {
     $("#cursor").css({left: xp +'px', top: yp +'px'});
   }, 20);
 
-  $(document).scroll(function() {
+  $(window).scroll(function() {
 
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -39,6 +39,18 @@ $(document).ready(function() {
 
       $("#titleline1").html("RECENT");
       $("#titleline2").html("PROJECTS");
+
+    }
+
+    if (document.getElementById('project_list').offsetHeight < scrollTop + window.innerHeight + 100) {
+
+      console.log("hi")
+
+      $("footer").css({'background-color': '#FFB400'})
+
+    } else {
+
+      $("footer").css({'background-color': 'transparent'})
 
     }
 
