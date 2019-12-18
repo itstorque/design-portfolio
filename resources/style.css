@@ -11,7 +11,7 @@
   height: 60px;
   border-radius: 50%;
   pointer-events: none !important;
-  animation: fade-in-out 3s ease-in-out infinite;
+  animation: fade-in-out 5s ease-in-out infinite;
 
 }
 
@@ -118,6 +118,80 @@ footer .logo:hover {
 ::selection {
     background-color: #FF595E;
     color: #fff;
+}
+
+#animation_picker {
+
+  height: 50vh;
+  width: 210px;
+  position: fixed;
+  padding: 0;
+  margin-left: 10px;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+  margin-bottom: 120px;
+  text-align: left;
+
+}
+
+#animation_picker .box {
+
+  width: 50px;
+  height: 50px;
+  border: 3px grey solid;
+
+  margin: 7.5px 5px;
+  transition: 0.4s ease;
+  display: none;
+
+}
+
+#animation_picker .box.selected {
+
+  display: inline-block;
+
+}
+
+#animation_picker :hover .box {
+
+  display: inline-block;
+
+}
+
+#animation_picker :hover .box {
+
+  background-color: transparent !important;
+
+}
+
+#animation_picker .box:hover {
+
+  border: 3px white solid;
+  background-color: white;
+
+}
+
+#animation_picker #r_collection .selected {
+
+  background-color: #FF1461;
+  border: 3px solid #FF1461;
+
+}
+
+#animation_picker #theta_collection .selected {
+
+  background-color: #18FF92;
+  border: 3px solid #18FF92;
+
+}
+
+#animation_picker #lambda_collection .selected {
+
+  background-color: #5A87FF;
+  border: 3px solid #5A87FF;
+
 }
 
 #projects_teaser {

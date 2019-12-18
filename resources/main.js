@@ -166,6 +166,31 @@ setCanvasSize();
 window.addEventListener('resize', setCanvasSize, false);
 
 $(document).ready(function() {
+
+  var randomizer_selcetors = ["#r0", "#r1", "#r2", "#t0", "#t1", "#t2", "#l0", "#l1", "#l2"];
+
+  for (var i = 0; i < randomizer_selcetors.length; i++) {
+
+    randomizer_id = randomizer_selcetors[i]
+
+    $(randomizer_id).click(function() {
+
+      button_id = $(this).attr('id');
+
+      val_chosen = parseInt(button_id[1], 10);
+
+      if (button_id[0] === "r") {
+        chosen_randomizer = val_chosen;
+      } else if (button_id[0] === "t") {
+        chosen_angle_randomizer = val_chosen;
+      } else if (button_id[0] === "l") {
+        chosen_randomizer_modifier = val_chosen;
+      }
+
+    });
+
+  }
+
   var xp = 0, yp = 0;
 
   var mouseX = 0
