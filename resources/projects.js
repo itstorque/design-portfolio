@@ -48,6 +48,9 @@ $(document).ready(function() {
 
       $("footer").css({'background-color': '#FFB400'})
 
+      $("#titleline1").html("THAT'S ALL");
+      $("#titleline2").html("FOLKS");
+
     } else {
 
       $("footer").css({'background-color': 'transparent'})
