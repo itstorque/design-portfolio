@@ -49,7 +49,7 @@ $(document).ready(function() {
 
       $("footer").css({'background-color': '#FFB400'})
 
-      $("#titleline1").html("THAT'S ALL");
+      $("#titleline1").html("THAT<span style='transform: translateY(-0.8em); display: inline-block; margin-left: 0.1em;'>,</span>S ALL");
       $("#titleline2").html("FOLKS");
 
     } else {
