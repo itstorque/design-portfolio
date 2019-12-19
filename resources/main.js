@@ -211,6 +211,13 @@ $(document).ready(function() {
 
   }
 
+  // SETTING DEFAULT VALUES FOR MY FAVORITE CONFIGURATION,
+  // CONSIDERING MAKING A RANDOM BUTTON/RANDOM ON LOAD METHOD
+
+  $("#r1").click()
+  $("#t2").click()
+  $("#l2").click()
+
   var xp = 0, yp = 0;
 
   var mouseX = 0

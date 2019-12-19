@@ -1,3 +1,19 @@
+:root {
+
+  /* FOR MAIN PAGE */
+
+  --main-red: #FF1461;
+  --main-green: #18FF92;
+  --main-blue: #5A87FF;
+  --main-yellow: #FBF38C;
+
+  /* FOR PROJECTS PAGE */
+
+  --projects-background: #FF595E;
+  --popping-yellow: #FFB400;
+
+}
+
 @font-face {
   font-family: gobold;
   src: url(gobold.ttf);
@@ -24,7 +40,7 @@ body {
 
 body#projects {
 
-  background-color: #FF595E;
+  background-color: var(--projects-background);
 
 }
 
@@ -116,7 +132,7 @@ footer .logo:hover {
 }
 
 ::selection {
-    background-color: #FF595E;
+    background-color: var(--popping-yellow);
     color: #fff;
 }
 
@@ -190,22 +206,22 @@ footer .logo:hover {
 
 #animation_picker #r_collection .selected {
 
-  background-color: #FF1461;
-  border: 3px solid #FF1461;
+  background-color: var(--main-red);
+  border: 3px solid var(--main-red);
 
 }
 
 #animation_picker #theta_collection .selected {
 
-  background-color: #18FF92;
-  border: 3px solid #18FF92;
+  background-color: var(--main-green);
+  border: 3px solid var(--main-green);
 
 }
 
 #animation_picker #lambda_collection .selected {
 
-  background-color: #5A87FF;
-  border: 3px solid #5A87FF;
+  background-color: var(--main-blue);
+  border: 3px solid var(--main-blue);
 
 }
 
@@ -228,7 +244,7 @@ footer .logo:hover {
   position: fixed;
   right: -25px;
   top: 0;
-  background-color: #FF595E;
+  background-color: var(--projects-background);
   z-index: -1;
   transition: 0.2s ease;
 
@@ -291,8 +307,8 @@ footer .logo:hover {
   font-family: "gobold";
   animation: fade-in-from-right 0.4s;
   z-index: -1;
-  color: #FF595E;
-  -webkit-text-stroke: 5px white;
+  color: var(--projects-background);
+  -webkit-text-stroke: 0.02em white;
 
 }
 
@@ -322,7 +338,7 @@ footer .logo:hover {
 
 #project_list .six {
 
-  background-color: #FFB400;
+  background-color: var(--popping-yellow);
   height: 90vh;
 
 }
@@ -351,7 +367,7 @@ footer .logo:hover {
 
 #project_list .eight {
 
-  background-color: #FFB400;
+  background-color: var(--popping-yellow);
   height: 80vh;
 
 }
