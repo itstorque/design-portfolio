@@ -10,9 +10,9 @@ var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
 var randomizer_selcetors = ["#r0", "#r1", "#r2", "#t0", "#t1", "#t2", "#l0", "#l1", "#l2"];
 
 let randomizer_funcs = [x => x**0.6*10, x => Math.round(x/50)*50, x => function (n) { n=n**0.6*10; a=n%20; return Math.round(n/100)*100+a; }(x)];
-var chosen_randomizer = 1;
+var chosen_randomizer = 0;
 
-var chosen_randomizer_modifier = 2;
+var chosen_randomizer_modifier = 0;
 
 var position_modifier = 0;
 var time_modifier = function (){return (new Date).getSeconds()/20};
@@ -31,8 +31,8 @@ var randomizer_modifier = function(n) {
 
 };
 
-let angle_randomizer_funcs = [x => x * Math.PI / 180, x => Math.round(x * Math.PI / 90)/2, x => anime.random(0,5)*Math.PI/6*randomizer_modifier(chosen_randomizer_modifier), x => Math.sin(x) ]
-var chosen_angle_randomizer = 2
+let angle_randomizer_funcs = [x => x * Math.PI / 180, x => Math.round(x * Math.PI / 90)/2+randomizer_modifier(chosen_randomizer_modifier), x => anime.random(0,5)*Math.PI/6*randomizer_modifier(chosen_randomizer_modifier), x => Math.sin(x) ]
+var chosen_angle_randomizer = 0
 
 function setCanvasSize() {
   canvasEl.width = window.innerWidth * 2;
